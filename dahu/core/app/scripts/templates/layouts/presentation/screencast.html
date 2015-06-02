@@ -62,28 +62,28 @@
             {{#if this.screencast.attributes.screens.models}}
                 <!-- iterate on all the screens -->
                 {{#each this.screencast.attributes.screens.models}}
-                <section class="slide" id="screen_{{id}}" data-dahu-animator="anim_{{id}}">
+                <section class="slide" id="screen_{{id}}" data-dahu-animator="anim_{{trimDashes id}}">
                     <!-- iterate on all objects, show only images -->
                     {{#each attributes.objects.models}}
                     {{#if isImage }}
                     <img src="{{attributes.img}}" class="background" style="width:{{screencastWidth}}; height:{{screencastHeight}};">
                     {{/if}}
                     {{#if isTooltip }}
-                    <div class="tooltip"
+                    <div class="tooltip" id="tooltip_{{attributes.id}}"
                         style="background-color: {{attributes.color}}; width: {{attributes.width}}; top:{{normalizedToPixel (screencastHeight) attributes.posy}}; left: {{normalizedToPixel (screencastWidth) attributes.posx}};">
                         {{{attributes.text}}}
                     </div>
                     {{/if}}
                     {{#if isMouse}}
-                    <img src="./img/cursor.png" class="mouse"
+                    <img src="./img/cursor.png" class="mouse" id="mouse_{{attributes.id}}"
                          style="top: {{normalizedToPixel (screencastHeight) attributes.posy}}; left:{{normalizedToPixel (screencastWidth) attributes.posx}};">
                     {{/if}}
                     {{/each}}
 
                     <script>
-                        var anim_{{id}} =
+                        var anim_{{trimDashes  id}} =
                         {
-                            "id": "anim_{{id}}",
+                            "id": "anim_{{trimDashes  id}}",
                             "target": "#screen_{{id}}",
                             "actions": {{{dumpJSON attributes.actions}}}
                         };
