@@ -62,7 +62,7 @@
             {{#if this.screencast.attributes.screens.models}}
                 <!-- iterate on all the screens -->
                 {{#each this.screencast.attributes.screens.models}}
-                <section class="slide" id="screen_{{id}}" data-dahu-animator="anim_{{trimDashes id}}">
+                <section class="slide" id="screen_{{id}}" data-dahu-animator="anim_{{removeDashes id}}">
                     <!-- iterate on all objects, show only images -->
                     {{#each attributes.objects.models}}
                     {{#if isImage }}
@@ -81,9 +81,9 @@
                     {{/each}}
 
                     <script>
-                        var anim_{{trimHyphens  id}} =
+                        var anim_{{removeDashes  id}} =
                         {
-                            "id": "anim_{{trimHyphens  id}}",
+                            "id": "anim_{{removeDashes  id}}",
                             "target": "#screen_{{id}}",
                             "actions": {{{dumpJSON attributes.actions}}}
                         };
