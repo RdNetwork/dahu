@@ -53,18 +53,16 @@
             {{#if this.screencast.attributes.screens.models}}
                 <!-- iterate on all the screens -->
                 {{#each this.screencast.attributes.screens.models}}
-                <section class="slide" id="screen_{{id}}">
+                <section class="slide" id="screen_{{id}}" data-dahu-animator="anim_{{id}}">
                     <!-- iterate on all objects, show only images -->
                     {{#each attributes.objects.models}}
                     {{#if isImage }}
                     <img src="{{attributes.img}}" class="background" style="width:{{screencastWidth}}; height:{{screencastHeight}};">
                     {{/if}}
                     {{#if isTooltip }}
-                    <div class="slide">
-                        <div class="tooltip"
-                             style="background-color: {{attributes.color}}; width: {{attributes.width}}; top:{{normalizedToPixel (screencastHeight) attributes.posy}}; left: {{normalizedToPixel (screencastWidth) attributes.posx}};">
-                            {{{attributes.text}}}
-                        </div>
+                    <div class="tooltip"
+                        style="background-color: {{attributes.color}}; width: {{attributes.width}}; top:{{normalizedToPixel (screencastHeight) attributes.posy}}; left: {{normalizedToPixel (screencastWidth) attributes.posx}};">
+                        {{{attributes.text}}}
                     </div>
                     {{/if}}
                     {{#if isMouse}}
@@ -72,6 +70,15 @@
                          style="top: {{normalizedToPixel (screencastHeight) attributes.posy}}; left:{{normalizedToPixel (screencastWidth) attributes.posx}};">
                     {{/if}}
                     {{/each}}
+
+                    <script>
+                        var anim_{{id}} =
+                        {
+                            "id": "anim_{{id}}",
+                            "target": "#screen_{{id}}",
+                            "actions": {{dumpJSON attributes.actions}}
+                        };
+                    </script>
                 </section>
                 {{/each}}
             {{else}}

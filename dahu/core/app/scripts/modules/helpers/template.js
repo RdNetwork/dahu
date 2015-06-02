@@ -59,6 +59,17 @@ define([
             // return URL
             return options.type + '://' + Paths.join(parts);
         });
+
+        /**
+         * Returns a string matching the JSON object of 'element'.
+         *
+         * @param element Element to turn into a String
+         * @returns {string} a formatted JSON object as a String.
+         */
+        Handlebars.default.registerHelper('dumpJSON', function (element) {
+            return JSON.stringify(element);
+        });
+
     }
 
     return {
