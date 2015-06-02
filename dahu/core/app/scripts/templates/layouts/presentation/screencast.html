@@ -23,7 +23,16 @@
 
         <!-- Required Modernizr file -->
         <script src="./libs/deck.js/modernizr.custom.js"></script>
-        
+
+        <!-- Required JS files. -->
+        <script src="./libs/deck.js/jquery.min.js"></script>
+        <script src="./libs/deck.js/core/deck.core.js"></script>
+
+        <!-- Required animator extension -->
+        <script src="./libs/deck.js/extensions/animator/animator.js"></script>
+        <script src="./libs/deck.js/extensions/animator/deck.animator.js"></script>
+
+
         <style>
             /* temporary */
             img.background {
@@ -76,7 +85,7 @@
                         {
                             "id": "anim_{{id}}",
                             "target": "#screen_{{id}}",
-                            "actions": {{dumpJSON attributes.actions}}
+                            "actions": {{{dumpJSON attributes.actions}}}
                         };
                     </script>
                 </section>
@@ -87,9 +96,7 @@
             {{/if}}
         </div>
     </div>
-    <!-- Required JS files. -->
-    <script src="./libs/deck.js/jquery.min.js"></script>
-    <script src="./libs/deck.js/core/deck.core.js"></script>
+
 
     <!-- Extension JS files. Add or remove as needed. -->
     <script src="./libs/deck.js/extensions/menu/deck.menu.js"></script>
