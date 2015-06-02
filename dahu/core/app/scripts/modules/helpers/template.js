@@ -74,8 +74,8 @@ define([
          * Returns a string without any dashes, since they are unauthorized
          * in variable names in JavaScript.
          */
-        Handlebars.default.registerHelper('tripHyphens', function (string) {
-            return string.replace(/-/g, "");
+        Handlebars.default.registerHelper('trimHyphens', function (str) {
+            return str.replace(/-/g, "");
         });
 
     }
