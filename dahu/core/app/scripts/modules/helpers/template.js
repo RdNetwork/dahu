@@ -78,18 +78,6 @@ define([
             return str.replace(/-/g, "");
         });
 
-        /**
-         * Appends a number sign (#) to every 'target' CSS id found in the JSON 
-         * object given as parameter.
-         */
-        Handlebars.default.registerHelper('appendNumberSignToTarget', function (element) {
-            element.forEach(function(e) {
-                e.target = "#" + e.target;
-            });
-
-            return element;
-        });
-
     }
 
     return {
